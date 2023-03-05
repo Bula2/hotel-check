@@ -1,11 +1,17 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Main from "./components/main";
+import Auth from "./components/auth";
 
 function App() {
   return (
-    <div>
-      Hotel
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/main"} element={<Main/>}/>
+        <Route path={"/"} element={<Auth/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
