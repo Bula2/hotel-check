@@ -40,6 +40,11 @@
   }
 }
 
+.datePicker{
+  background: url("../../../assets/images/calendar.png") no-repeat 265px;
+  background-size: 20px;
+}
+
 .errors {
   margin-top: 2px;
   color: #da1818;
@@ -65,6 +70,10 @@
 
   .title {
     font-size: 20px;
+  }
+
+  .datePicker{
+    background-position: 185px;
   }
 
   .input {

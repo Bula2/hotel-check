@@ -52,12 +52,13 @@ const Search = () => {
               id={"date"}
               selected={values.date}
               placeholderText="Дата заселения"
-              className={cx("form-control", styles.input)}
+              className={cx("form-control", styles.input, styles.datePicker)}
               name="date"
               dateFormat="dd.MM.yyyy"
               todayButton="Сегодня"
               required={true}
               locale="ru"
+              shouldCloseOnSelect
               onChange={date => setFieldValue('date', date)}
             />
           </div>
