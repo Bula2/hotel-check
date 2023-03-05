@@ -1,0 +1,62 @@
+@import "../../../../styles/variables";
+
+.wrapper{
+  max-height: 300px;
+  overflow: auto;
+  padding-right: 16px;
+}
+
+.item{
+  padding-bottom: 10px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(135, 135, 135, .2);
+  gap: 4px;
+  &:last-child{
+    border: none;
+    padding-bottom: 0;
+  }
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_name{
+      font-size: 17px;
+      line-height: 22px;
+      letter-spacing: -0.41px;
+      color: $text-color;
+    }
+    &_heart{
+      img {
+        display: block;
+        margin-top: 2px;
+      }
+    }
+  }
+  &__middle{
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    color: $text-color;
+  }
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    color: $text-color;
+    font-weight: 500;
+  }
+}
+
+.price{
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 11px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  color: $items-color;
+}

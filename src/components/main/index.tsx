@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./main.module.scss"
 import {Link} from "react-router-dom";
 import Search from "../../modules/main/search";
+import Liked from "../../modules/main/liked";
 
 const Main = () => {
   return (
@@ -18,7 +19,7 @@ const Main = () => {
       <div className={styles.body}>
         <div className={styles.menu}>
           <div className={styles.menu_left_top}><Search/></div>
-          <div className={styles.menu_left_bottom}>Избранное</div>
+          <div className={styles.menu_left_bottom}><Liked/></div>
           <div className={styles.menu_right}>Отели</div>
         </div>
       </div>
