@@ -1,0 +1,75 @@
+@import "../../styles/variables";
+
+.wrapper {
+  min-height: 100vh;
+  background: #E5E5E5;
+}
+
+.header {
+  padding: 32px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_left {
+    font-size: 24px;
+    color: $text-color;
+  }
+
+  &_right {
+    margin-top: 6px;
+
+    &_link {
+      display: flex;
+      align-items: center;
+      color: #41522E;
+      font-size: 16px;
+
+      &__img {
+        display: block;
+        margin-left: 6px;
+        margin-top: 2px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.body {
+  padding: 0 180px 40px;
+}
+
+.menu {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+        "search menu"
+        "liked menu";
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 24px;
+
+  &_left{
+    &_top{
+      grid-area: search;
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+    }
+    &_bottom{
+      grid-area: liked;
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+    }
+  }
+
+  &_right{
+    grid-area: menu;
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+  }
+}
