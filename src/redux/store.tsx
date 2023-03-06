@@ -2,11 +2,13 @@ import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import hotelsReducer from "./hotelsReducer";
 import carouselReducer from "./carouselReducer";
 import authReducer from "./authReducer";
+import likedReducer from "./likedReducer";
 
 const rootReducer = combineReducers({
   hotelsReducer,
   carouselReducer,
-  authReducer
+  authReducer,
+  likedReducer
 });
 
 // @ts-ignore

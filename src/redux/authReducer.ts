@@ -1,3 +1,5 @@
+import {AnyAction} from "redux";
+
 const AUTH = "authReducer/AUTH";
 const EXIT = "authReducer/EXIT";
 interface IInitialState{
@@ -5,12 +7,12 @@ interface IInitialState{
   password:string | null;
 }
 
-const initialState: any = {
+const initialState: IInitialState = {
   email: null,
   password: null
 }
 
-const authReducer = (state = initialState, action: any) => {
+const authReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case AUTH: {
       return {

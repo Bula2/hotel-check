@@ -74,6 +74,24 @@
   }
 }
 
+.auth{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 100px 20px 0;
+  &_text{
+    text-align: center;
+    color: $text-color;
+    font-size: 24px;
+  }
+  &_button{
+    width: 200px !important;
+    height: 50px !important;
+  }
+}
+
 @media (max-width: 1069px) {
   .menu{
     display: flex;
