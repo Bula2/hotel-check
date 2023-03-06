@@ -3,6 +3,7 @@ import styles from "./main.module.scss"
 import {Link} from "react-router-dom";
 import Search from "../../modules/main/search";
 import Liked from "../../modules/main/liked";
+import Hotels from "../../modules/main/hotels";
 
 const Main = () => {
   return (
@@ -20,7 +21,7 @@ const Main = () => {
         <div className={styles.menu}>
           <div className={styles.menu_left_top}><Search/></div>
           <div className={styles.menu_left_bottom}><Liked/></div>
-          <div className={styles.menu_right}>Отели</div>
+          <div className={styles.menu_right}><Hotels/></div>
         </div>
       </div>
     </div>

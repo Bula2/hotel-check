@@ -1,8 +1,10 @@
 import {combineReducers, createStore} from "redux";
 import hotelsReducer from "./hotelsReducer";
+import carouselReducer from "./carouselReducer";
 
 const rootReducer = combineReducers({
-  hotelsReducer
+  hotelsReducer,
+  carouselReducer
 });
 
 export const store = createStore(rootReducer);

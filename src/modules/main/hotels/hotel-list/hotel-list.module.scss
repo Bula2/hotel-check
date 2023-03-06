@@ -1,33 +1,63 @@
 @import "../../../../styles/variables";
 
-.wrapper{
-  max-height: 300px;
+.wrapper {
+  max-height: 584px;
   overflow: auto;
-  padding-right: 16px;
+  margin-top: 16px;
+  padding-right: 32px;
 }
 
-.item{
+.element {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgb(135, 135, 135, .2);
+
+  &:last-child {
+    border: none;
+    padding-bottom: 0;
+  }
+  &:first-child{
+    padding-top: 0;
+  }
+}
+
+.home_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &_image {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #efeaea;
+  }
+}
+
+.item {
   padding-bottom: 10px;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid rgb(135, 135, 135, .2);
   gap: 4px;
-  &:last-child{
-    border: none;
-    padding-bottom: 0;
-  }
-  &__top{
+
+  &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &_name{
+
+    &_name {
       font-size: 17px;
       line-height: 22px;
       letter-spacing: -0.41px;
       color: $text-color;
     }
-    &_heart{
+
+    &_heart {
       img {
         display: block;
         margin-top: 2px;
@@ -35,13 +65,15 @@
       }
     }
   }
-  &__middle{
+
+  &__middle {
     font-size: 14px;
     line-height: 22px;
     letter-spacing: -0.41px;
     color: $text-color;
   }
-  &__bottom{
+
+  &__bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,7 +85,7 @@
   }
 }
 
-.price{
+.price {
   display: inline-block;
   margin-right: 10px;
   font-size: 11px;

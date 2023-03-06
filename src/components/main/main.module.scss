@@ -70,6 +70,21 @@
     grid-area: menu;
     background: #fff;
     border-radius: 16px;
-    padding: 32px;
+    padding: 48px 32px;
+  }
+}
+
+@media (max-width: 1069px) {
+  .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 360px) {
+  .body {
+    padding: 0 10px 40px;
   }
 }

@@ -1,0 +1,39 @@
+@import "../../../styles/variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  &_left {
+    font-size: 32px;
+    color: $text-color;
+    font-weight: 600;
+  }
+  &_right{
+    font-size: 24px;
+    color:$green-color;
+  }
+}
+
+.carousel{
+  margin: 28px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  color: $text-color;
+}
+
+.hotels_count{
+  display: block;
+  margin: 0 4px;
+  color: $green-color
+}
