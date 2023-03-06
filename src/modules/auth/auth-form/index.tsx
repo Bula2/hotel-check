@@ -4,9 +4,13 @@ import {Field, Form, Formik} from "formik";
 import styles from "./auth-form.module.scss";
 import cx from "classnames";
 import Button from "../../common/button";
+import bcrypt from "bcryptjs";
+import {useDispatch} from "react-redux";
+import {authUser} from "../../../redux/authReducer";
 
 const AuthForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const validateEmail = (value: string) => {
     if (!value) {
       return "Обязательное поле";
@@ -28,7 +32,11 @@ const AuthForm = () => {
     <Formik initialValues={{
       email: "",
       password: "",
-    }} onSubmit={async () => {
+    }} onSubmit={async (values) => {
+      const hashPassword = await bcrypt.hash(values.password, 10);
+      dispatch(authUser({...values, password: hashPassword}))
+      localStorage.setItem('email', JSON.stringify(values.email))
+      localStorage.setItem('password', JSON.stringify(hashPassword))
       await navigate("/main");
     }}>
       {({errors, touched}) => (
