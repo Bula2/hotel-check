@@ -2,8 +2,10 @@ import React from 'react';
 import styles from "./liked-list.module.scss"
 import Rating from "../../../common/rating";
 import {hotelType} from "../../../../types";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {delHotel} from "../../../../redux/likedReducer";
+import {RootState} from "../../../../redux/store";
+import {declOfNum} from "../../../../utils/declOfNum";
 
 export interface ILikedList {
   data?: hotelType[]
@@ -22,6 +24,8 @@ export interface ILikedListItem{
 
 export const LikedListItem: React.FC<ILikedListItem> = ({data}) => {
   const dispatch = useDispatch();
+  const info = useSelector((state: RootState) => state.infoReducer)
+  const declinationHotel = declOfNum(info.daysCount, ['день', 'дня', 'дней']);
   return (
     <div className={styles.item}>
       <div className={styles.item__top}>
@@ -30,7 +34,7 @@ export const LikedListItem: React.FC<ILikedListItem> = ({data}) => {
           <img src={"/images/red-heart.svg"} alt={"heart"}/>
         </div>
       </div>
-      <div className={styles.item__middle}>{data.date}{" - "}{data.daysCount}{" день"}</div>
+      <div className={styles.item__middle}>{info.date}{" - "}{info.daysCount}{" " + declinationHotel}</div>
       <div className={styles.item__bottom}>
         <div className={styles.item__bottom_stars}><Rating stars={data.stars}/></div>
         <div className={styles.item__bottom_price}>

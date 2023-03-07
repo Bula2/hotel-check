@@ -9,15 +9,15 @@ import {RootState} from "../../../redux/store";
 import {declOfNum} from "../../../utils/declOfNum";
 
 const Hotels = () => {
-  const currentDate = formatDate(new Date());
   const likedCount = useSelector((state: RootState) => state.likedReducer.data.length)
   const hotelList = useSelector((state: RootState) => state.hotelsReducer.data)
+  const info = useSelector((state: RootState) => state.infoReducer)
   const declinationHotel = declOfNum(likedCount, ['отель', 'отеля', 'отелей']);
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <div className={styles.header_left}>{"Отели > Москва"}</div>
-        <div className={styles.header_right}>{currentDate}</div>
+        <div className={styles.header_left}>{"Отели > " + info.location}</div>
+        <div className={styles.header_right}>{info.date}</div>
       </div>
       <div className={styles.carousel}>
         <MyCarousel/>

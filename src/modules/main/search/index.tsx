@@ -8,11 +8,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import ru from 'date-fns/locale/ru';
 import {requestHotels} from "../../../redux/hotelsReducer";
 import {useDispatch} from "react-redux";
+import {formatDate, formatDateFetch} from "../../../utils/formatDate";
+import {addInfo} from "../../../redux/infoReducer";
 
 registerLocale('ru', ru)
 const Search = () => {
   const dispatch = useDispatch();
-  dispatch(requestHotels());
+  dispatch(requestHotels("Москва", "2023-03-06", "2023-03-07"));
   const validateLocation = (value: string) => {
     if (!value) {
       return "Обязательное поле";
@@ -24,15 +26,19 @@ const Search = () => {
       return "Обязательное поле"
     }
   }
-
+  const currentDay = new Date()
   return (
     <Formik initialValues={{
       location: "Москва",
-      date: new Date,
+      date: currentDay,
       daysCount: 1
     }} onSubmit={async (values, {resetForm}) => {
-      dispatch(requestHotels());
-      resetForm();
+      const checkIn = formatDateFetch(values.date)
+      const checkOut = values.date
+      checkOut.setDate(values.date.getDate() + Number(values.daysCount))
+      dispatch(requestHotels(values.location, checkIn, formatDateFetch(checkOut)));
+      checkOut.setDate(values.date.getDate() - Number(values.daysCount))
+      dispatch(addInfo(values.location,values.daysCount, formatDate(values.date)));
     }}>
       {({errors, touched, values, setFieldValue}) => (
         <Form className={styles.form}>

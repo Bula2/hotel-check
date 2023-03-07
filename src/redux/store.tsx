@@ -1,15 +1,17 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
-import hotelsReducer, {fetchHotels, watchFetchHotels} from "./hotelsReducer";
+import hotelsReducer, {watchFetchHotels} from "./hotelsReducer";
 import carouselReducer from "./carouselReducer";
 import authReducer from "./authReducer";
 import likedReducer from "./likedReducer";
 import createSagaMiddleware from "redux-saga"
+import infoReducer from "./infoReducer";
 
 const rootReducer = combineReducers({
   hotelsReducer,
   carouselReducer,
   authReducer,
-  likedReducer
+  likedReducer,
+  infoReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();

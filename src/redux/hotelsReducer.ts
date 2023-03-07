@@ -40,22 +40,21 @@ const setHotels = (values: hotelType[]) =>
 const failRequestHotels = () =>
   ({type: FAILED_REQUEST_HOTELS})
 
-export const requestHotels = () =>
-  ({type: REQUEST_HOTELS})
+export const requestHotels = (location: string, checkIn: string, checkOut: string) =>
+  ({type: REQUEST_HOTELS, location, checkIn, checkOut})
 
 export function* watchFetchHotels() {
   yield takeEvery(REQUEST_HOTELS, fetchHotels);
 }
-export function* fetchHotels () {
+export function* fetchHotels (args : {location: string, checkIn: string, checkOut: string, type: string}): any{
   try {
-    // @ts-ignore
     const data = yield call(() => axios.get("http://engine.hotellook.com/api/v2/cache.json",
       {
         params: {
-          location: "Москва",
+          location: args.location,
           currency: "rub",
-          checkIn: "2023-03-06",
-          checkOut: "2023-03-09",
+          checkIn: args.checkIn,
+          checkOut: args.checkOut,
           limit: 20
         }
       }).then((res: any) => res.data))
