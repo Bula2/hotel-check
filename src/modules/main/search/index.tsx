@@ -79,6 +79,8 @@ const Search = () => {
             <Field
               id="daysCount"
               name="daysCount"
+              type="number"
+              min="1"
               validate={validateDaysCount}
               className={cx(styles.input)}>
             </Field>
