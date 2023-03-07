@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {Field, Form, Formik} from "formik";
 import styles from "./auth-form.module.scss";
@@ -11,6 +11,12 @@ import {authUser} from "../../../redux/authReducer";
 const AuthForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const email = localStorage.getItem("email");
+  const password = localStorage.getItem("password");
+
+  useEffect(() => {
+    email && password && navigate("/main")
+  }, [])
   const validateEmail = (value: string) => {
     if (!value) {
       return "Обязательное поле";
