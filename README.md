@@ -1,3 +1,6 @@
+Сервис по поиску отелей ( TS, React, Redux, Redux-Saga)\
+Ссылочка посмотреть: [https://simple-hotel-check-buladev.netlify.app/](https://simple-hotel-check-buladev.netlify.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
