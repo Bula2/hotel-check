@@ -18,15 +18,17 @@
     border: none;
     padding-bottom: 0;
   }
-  &:first-child{
+
+  &:first-child {
     padding-top: 0;
   }
 }
 
-.home_wrapper{
+.home_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+
   &_image {
     width: 64px;
     height: 64px;
@@ -58,7 +60,7 @@
     }
 
     &_heart {
-      img {
+      svg {
         display: block;
         margin-top: 2px;
         cursor: pointer;
@@ -92,4 +94,32 @@
   line-height: 22px;
   letter-spacing: -0.41px;
   color: $items-color;
+}
+
+.heart_hover_white {
+  path {
+    transition: fill .4s, stroke .4s;
+    &:hover {
+      fill: #C4C4C4;
+      stroke: #C4C4C4;
+    }
+    &:active{
+      fill: #E55858;
+      stroke: #E55858;
+    }
+  }
+}
+
+.heart_hover_red {
+  path {
+    transition: fill .4s, stroke .4s;
+    &:hover {
+      fill: #C4C4C4;
+      stroke: #C4C4C4;
+    }
+    &:active{
+      fill: white;
+      stroke: #C4C4C4;
+    }
+  }
 }

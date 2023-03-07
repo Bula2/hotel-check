@@ -28,7 +28,7 @@
       color: $text-color;
     }
     &_heart{
-      img {
+      svg {
         display: block;
         margin-top: 2px;
         cursor: pointer;
@@ -60,4 +60,18 @@
   line-height: 22px;
   letter-spacing: -0.41px;
   color: $items-color;
+}
+
+.heart_hover {
+  path {
+    transition: fill .4s, stroke .4s;
+    &:hover {
+      fill: #C4C4C4;
+      stroke: #C4C4C4;
+    }
+    &:active{
+      fill: white;
+      stroke: #C4C4C4;
+    }
+  }
 }
