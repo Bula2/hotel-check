@@ -48,7 +48,7 @@ export function* watchFetchHotels() {
 }
 export function* fetchHotels (args : {location: string, checkIn: string, checkOut: string, type: string}): any{
   try {
-    const data = yield call(() => axios.get("http://engine.hotellook.com/api/v2/cache.json",
+    const data = yield call(() => axios.get("https://engine.hotellook.com/api/v2/cache.json",
       {
         params: {
           location: args.location,
