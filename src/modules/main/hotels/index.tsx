@@ -11,6 +11,7 @@ import {declOfNum} from "../../../utils/declOfNum";
 const Hotels = () => {
   const currentDate = formatDate(new Date());
   const likedCount = useSelector((state: RootState) => state.likedReducer.data.length)
+  const hotelList = useSelector((state: RootState) => state.hotelsReducer.data)
   const declinationHotel = declOfNum(likedCount, ['отель', 'отеля', 'отелей']);
   return (
     <div className={styles.wrapper}>
@@ -23,7 +24,7 @@ const Hotels = () => {
       </div>
       <div className={styles.title}>{"Добавлено в избранное:"}<span className={styles.hotels_count}>{likedCount}</span>{declinationHotel}</div>
       <div>
-        <HotelList data={data1}/>
+        <HotelList data={hotelList}/>
       </div>
     </div>
   );

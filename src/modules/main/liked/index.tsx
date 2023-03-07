@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./liked.module.scss"
-import axios from "axios";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import {data1} from "../../../static/data";
 import LikedList from "./liked-list";
 import cx from "classnames"
-import {hotelType} from "../../../types";
 
 const Liked = () => {
   const currentData = useSelector((state: RootState) => state.likedReducer.data);

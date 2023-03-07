@@ -1,5 +1,5 @@
 export interface hotelType{
-  id: number,
+  hotelId: number,
   hotelName: string,
   priceAvg: number,
   stars: number,

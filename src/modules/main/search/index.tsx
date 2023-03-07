@@ -6,9 +6,13 @@ import Button from "../../common/button";
 import DatePicker, {registerLocale} from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import ru from 'date-fns/locale/ru';
+import {requestHotels} from "../../../redux/hotelsReducer";
+import {useDispatch} from "react-redux";
 
 registerLocale('ru', ru)
 const Search = () => {
+  const dispatch = useDispatch();
+  dispatch(requestHotels());
   const validateLocation = (value: string) => {
     if (!value) {
       return "Обязательное поле";
@@ -27,7 +31,7 @@ const Search = () => {
       date: new Date,
       daysCount: 1
     }} onSubmit={async (values, {resetForm}) => {
-      console.log(values);
+      dispatch(requestHotels());
       resetForm();
     }}>
       {({errors, touched, values, setFieldValue}) => (
@@ -77,7 +81,7 @@ const Search = () => {
             )}
           </div>
           <div className={styles.field}>
-            <Button text={"Найти"} className={styles.button}/>
+            <Button type={"submit"} text={"Найти"} className={styles.button}/>
           </div>
         </Form>
       )}

@@ -26,7 +26,7 @@ export const LikedListItem: React.FC<ILikedListItem> = ({data}) => {
     <div className={styles.item}>
       <div className={styles.item__top}>
         <div className={styles.item__top_name}>{data.hotelName}</div>
-        <div className={styles.item__top_heart} onClick={() => dispatch(delHotel(data.id))}>
+        <div className={styles.item__top_heart} onClick={() => dispatch(delHotel(data.hotelId))}>
           <img src={"/images/red-heart.svg"} alt={"heart"}/>
         </div>
       </div>

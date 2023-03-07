@@ -28,7 +28,7 @@ const likedReducer = (state = initialState, action: AnyAction) => {
     case DEL_HOTEL: {
       return {
         ...state,
-        data: state.data.filter(item => item.id !== action.id)
+        data: state.data.filter(item => item.hotelId !== action.id)
       }
     }
     default:
