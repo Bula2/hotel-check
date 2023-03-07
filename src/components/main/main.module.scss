@@ -2,6 +2,7 @@
 
 .wrapper {
   min-height: 100vh;
+  min-width: 100vw;
   background: #E5E5E5;
 }
 
@@ -92,6 +93,12 @@
   }
 }
 
+@media (max-width: 1300px) {
+  .body{
+    padding: 0 120px 40px;
+  }
+}
+
 @media (max-width: 1069px) {
   .menu{
     display: flex;
@@ -101,8 +108,15 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .body {
-    padding: 0 10px 40px;
+    padding: 0 5px 40px;
+  }
+  .menu_right{
+    margin: -150px 0;
+    transform: scale(.7);
+  }
+  .menu_left_bottom{
+    transform: scale(.95);
   }
 }
