@@ -1,4 +1,4 @@
-Сервис по бронированию отелей ( TS, React, Redux, Redux-Saga)\
+Сервис по поиску отелей ( TS, React, Redux, Redux-Saga)\
 Ссылочка посмотреть: [https://simple-hotel-check-buladev.netlify.app/](https://simple-hotel-check-buladev.netlify.app/)
 
 # Getting Started with Create React App
