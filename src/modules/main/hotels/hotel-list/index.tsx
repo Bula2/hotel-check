@@ -28,10 +28,11 @@ export const HotelListItem: React.FC<IHotelListItem> = ({data}) => {
   const likedData = useSelector((state: RootState) => state.likedReducer)
   const info = useSelector((state: RootState) => state.infoReducer)
   const declinationHotel = declOfNum(info.daysCount, ['день', 'дня', 'дней']);
-  const [unliked, setUnliked] = useState(likedData.data.filter(item => item.hotelId === data.hotelId));
+  const [unliked, setUnliked] = useState((likedData.data.filter(item => item.hotelId === data.hotelId && item.priceAvg === data.priceAvg).length === 0));
+  console.log(unliked)
   useEffect(() => {
-    setUnliked(likedData.data.filter(item => item.hotelId === data.hotelId))
-  }, [likedData])
+    setUnliked((likedData.data.filter(item => item.hotelId === data.hotelId && item.priceAvg === data.priceAvg).length === 0));
+  }, [likedData, data])
   return (
     <div className={styles.element}>
       <div className={styles.home_wrapper}>
