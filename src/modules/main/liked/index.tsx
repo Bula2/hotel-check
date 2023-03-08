@@ -15,6 +15,7 @@ const Liked = () => {
     setData(currentData)
   }, [currentData])
   const changeRating = () => {
+    setPrice(0);
     if (rating === 2) {
       setData(currentData);
       setRating(0);
@@ -47,6 +48,7 @@ const Liked = () => {
   }
 
   const changePrice = () => {
+    setRating(0);
     if (price === 2) {
       setData(currentData);
       setPrice(0)
