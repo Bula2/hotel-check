@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Field, Form, Formik} from "formik";
 import styles from "./search.module.scss";
 import cx from "classnames";
@@ -14,7 +14,17 @@ import {addInfo} from "../../../redux/infoReducer";
 registerLocale('ru', ru)
 const Search = () => {
   const dispatch = useDispatch();
-  dispatch(requestHotels("Москва", "2023-03-06", "2023-03-07"));
+  const showHotels = (location: string, date: Date, daysCount: number) => {
+    const checkIn = formatDateFetch(date)
+    const checkOut = date
+    checkOut.setDate(date.getDate() + Number(daysCount))
+    dispatch(requestHotels(location, checkIn, formatDateFetch(checkOut)));
+    checkOut.setDate(date.getDate() - Number(daysCount))
+  }
+
+  useEffect(() => {
+    showHotels("Москва", new Date(), 1)
+  }, [])
   const validateLocation = (value: string) => {
     if (!value) {
       return "Обязательное поле";
@@ -26,18 +36,13 @@ const Search = () => {
       return "Обязательное поле"
     }
   }
-  const currentDay = new Date()
   return (
     <Formik initialValues={{
       location: "Москва",
-      date: currentDay,
+      date: new Date(),
       daysCount: 1
-    }} onSubmit={async (values, {resetForm}) => {
-      const checkIn = formatDateFetch(values.date)
-      const checkOut = values.date
-      checkOut.setDate(values.date.getDate() + Number(values.daysCount))
-      dispatch(requestHotels(values.location, checkIn, formatDateFetch(checkOut)));
-      checkOut.setDate(values.date.getDate() - Number(values.daysCount))
+    }} onSubmit={(values, {resetForm}) => {
+      showHotels(values.location, values.date, values.daysCount)
       dispatch(addInfo(values.location,values.daysCount, formatDate(values.date)));
     }}>
       {({errors, touched, values, setFieldValue}) => (
