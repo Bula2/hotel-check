@@ -1,5 +1,6 @@
 Сервис по поиску отелей ( TS, React, Redux, Redux-Saga)\
-Ссылочка посмотреть: [https://simple-hotel-check-buladev.netlify.app/](https://simple-hotel-check-buladev.netlify.app/)
+Ссылочка посмотреть: [https://simple-hotel-check-buladev.netlify.app/](https://simple-hotel-check-buladev.netlify.app/)\
+Логин - любая почта; Пароль - любой
 
 # Getting Started with Create React App
 
